@@ -1,7 +1,6 @@
 ---
-import '../styles/global.css';
-
-const pageTitle = "About Me";
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "About me";
 const identity = {
   firstName: "Sarah",
   country: "Canada",
@@ -18,11 +17,7 @@ const skillColor = "navy";
 const fontWeight = "bold";
 const textCase = "uppercase";
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
+<BaseLayout pageTitle={pageTitle}>
 	<style define:vars={{skillColor, fontWeight, textCase}}>
 		h1 {
 		  color: purple;
@@ -34,12 +29,6 @@ const textCase = "uppercase";
 			text-transform: var(--textCase);
 		}
 	  </style>
-  </head>
-<body>
-	<a href="/">Home</a>
-	<a href="/about/">About</a>
-	<a href="/blog/">Blog</a>
-	<h1>{pageTitle}</h1>
 	<p>Here are a few facts about me:</p>
 	<ul>
 	  <li>My name is {identity.firstName}.</li>
@@ -57,4 +46,4 @@ const textCase = "uppercase";
 	{finished && <p>I finished this tutorial!</p>}
 
 	{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-</body>
+</BaseLayout>
